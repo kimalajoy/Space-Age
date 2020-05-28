@@ -1,33 +1,60 @@
 <template>
   <div id="app">
-    <LoginPage v-on:login-handler='loginUser'/>
+    <!-- <div id='nav'> -->
+      <LoginPage v-on:login-handler='loginUser'/>
+      <CardSection v-bind:fetchedData="fetchedData"/>
+      <!-- <router-link v-if='isLoggedIn' to='/LoginPage' v-on:click.native="logout()" replace>Logout</router-link> -->
+    <!-- </div> -->
+    <!-- <router-view/> -->
   </div>
 </template>
 
 <script>
-
-import LoginPage from './components/LoginPage.vue'
+import LoginPage from './components/LoginPage.vue';
+import CardSection from './components/CardSection.vue'
 
 export default {
   name: 'App',
   components: {
-    LoginPage
+    LoginPage,
+    CardSection
   },
   data() {
     return {
         userInfo: {
           name: '',
-          dateOfBirth: ''
-        }
+          dateOfBirth: '',
+        },
+        isLoggedIn: false,
+        fetchedData: []
     }
+  },
+  mounted() {
+    // if(!this.isLoggedIn) {
+    //   this.$router.replace({ name: 'LoginPage' });
+    // } else {
+    this.fetchData();
+    // }
   },
   methods: {
     loginUser(newUser) {
-      this.userInfo = {newUser}
-    }
+      this.userInfo = {...newUser};
+      this.isLoggedIn = true;
+    },
+    fetchData: function () {
+      const myRequest = new Request('https://api.nasa.gov/planetary/apod?api_key=7dHxD8NJ7xkw5dxFuwR40aHbY6P1umxdxD0d48Oz&start_date=2014-07-01&end_date=2014-07-07')
+
+    fetch(myRequest)
+      .then((res) => { return res.json() })
+      .then((data) => {
+        this.fetchedData = data
+      })
+      .catch(err => { console.error(err); });
+}
   }
 }
 </script>
+
 
 <style>
 #app {
@@ -36,6 +63,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
