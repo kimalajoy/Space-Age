@@ -1,17 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <LoginPage v-on:login-handler='loginUser'/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import LoginPage from './components/LoginPage.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    LoginPage
+  },
+  data() {
+    return {
+        userInfo: {
+          name: '',
+          dateOfBirth: ''
+        }
+    }
+  },
+  methods: {
+    loginUser(newUser) {
+      this.userInfo = {newUser}
+    }
   }
 }
 </script>
