@@ -26,6 +26,8 @@
                     dateOfBirth: this.dateOfBirth,
                 }
                 this.$emit('login-handler', newUser);
+                this.$emit('isLoggedIn', true);
+                this.$router.replace({ name: 'CardSection' });
             }
         }
     }
