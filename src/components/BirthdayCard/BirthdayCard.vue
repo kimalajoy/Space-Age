@@ -1,6 +1,6 @@
 <template>
   <div class="birthday-card">
-    <img v-bind:src="img" alt="">
+    <img :src="birthdayCard.url" alt="" />
     <div id="nav-container">
       <div class="button" tabindex="0">
         <span class="icon-bar"></span>
@@ -18,12 +18,6 @@
   export default {
     name: 'BirthdayCard',
     props: ['birthdayCard'],
-    data() {
-      console.log('birthdayCard', this.birthdayCard);
-      return {
-        img: this.birthdayCard.url
-      }
-    }
   }
 </script>
 
