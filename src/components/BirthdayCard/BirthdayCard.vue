@@ -89,10 +89,8 @@
 
 #nav-content {
   opacity: 0;
-  /* margin-top: 25px; */
   padding: 20px;
   width: 90%;
-  /* height: 20px; */
   max-width: 400px;
   position: absolute;
   top: 0;
@@ -101,7 +99,8 @@
   background: rgba(255, 255, 255, 0.75);
   pointer-events: auto;
   transform: translateX(-100%);
-  transition: all .3s;
+  transition: all .5s;
+  overflow-x: scroll;
 }
 
 #nav-content:hover {
@@ -115,7 +114,6 @@
 #nav-container:focus-within #nav-content {
   transform: none;
   opacity: 100%;
-  transition: all .3s;
 }
 
 </style>
