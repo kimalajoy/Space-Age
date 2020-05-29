@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import LoginPage from './components/LoginPage.vue';
-import CardSection from './components/CardSection.vue'
+import LoginPage from './components/LoginPage/LoginPage.vue';
+import CardSection from './components/CardSection/CardSection.vue'
 
 export default {
   name: 'App',
@@ -33,24 +33,29 @@ export default {
     // if(!this.isLoggedIn) {
     //   this.$router.replace({ name: 'LoginPage' });
     // } else {
-    this.fetchData();
     // }
   },
   methods: {
     loginUser(newUser) {
       this.userInfo = {...newUser};
       this.isLoggedIn = true;
+      this.fetchData();
+      //clearInputs();
     },
-    fetchData: function () {
-      const myRequest = new Request('https://api.nasa.gov/planetary/apod?api_key=7dHxD8NJ7xkw5dxFuwR40aHbY6P1umxdxD0d48Oz&start_date=2014-07-01&end_date=2014-07-07')
+    clearInputs() {
+      this.userInfo.name = '';
+      this.userInfo.dateOfBirth = '';
+    },
+    fetchData: async function () {
+      const myRequest = `https://api.nasa.gov/planetary/apod?api_key=7dHxD8NJ7xkw5dxFuwR40aHbY6P1umxdxD0d48Oz&date=${this.userInfo.dateOfBirth}`
 
-    fetch(myRequest)
+    await fetch(myRequest)
       .then((res) => { return res.json() })
       .then((data) => {
         this.fetchedData = data
       })
       .catch(err => { console.error(err); });
-}
+    }
   }
 }
 </script>
@@ -63,18 +68,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>
