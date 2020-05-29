@@ -33,18 +33,23 @@ export default {
     // if(!this.isLoggedIn) {
     //   this.$router.replace({ name: 'LoginPage' });
     // } else {
-    this.fetchData();
     // }
   },
   methods: {
     loginUser(newUser) {
       this.userInfo = {...newUser};
       this.isLoggedIn = true;
+      this.fetchData();
+      //clearInputs();
     },
-    fetchData: function () {
-      const myRequest = 'https://api.nasa.gov/planetary/apod?api_key=7dHxD8NJ7xkw5dxFuwR40aHbY6P1umxdxD0d48Oz&date=2014-07-01'
+    clearInputs() {
+      this.userInfo.name = '';
+      this.userInfo.dateOfBirth = '';
+    },
+    fetchData: async function () {
+      const myRequest = `https://api.nasa.gov/planetary/apod?api_key=7dHxD8NJ7xkw5dxFuwR40aHbY6P1umxdxD0d48Oz&date=${this.userInfo.dateOfBirth}`
 
-    fetch(myRequest)
+    await fetch(myRequest)
       .then((res) => { return res.json() })
       .then((data) => {
         this.fetchedData = data

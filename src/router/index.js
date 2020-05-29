@@ -20,11 +20,13 @@ Vue.use(VueRouter)
   {
     path: '/CardSection',
     name: 'CardSection',
-    component: CardSection
+    component: CardSection,
+    props: true,
   }
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 
