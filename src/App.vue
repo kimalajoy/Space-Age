@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <div id='nav'> -->
       <LoginPage v-on:login-handler='loginUser'/>
-      <CardSection v-bind:fetchedData="fetchedData"/>
+      <CardSection v-if='isLoggedIn' v-bind:fetchedData="fetchedData"/>
       <!-- <router-link v-if='isLoggedIn' to='/LoginPage' v-on:click.native="logout()" replace>Logout</router-link> -->
     <!-- </div> -->
     <!-- <router-view/> -->
