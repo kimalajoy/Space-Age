@@ -7,6 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </div>
+        <img :src="nonActiveImg" id="favorite-icon" alt="telescope with clear heart">
       <div id="nav-content" tabindex="0">
         <h1>{{this.birthdayCard.explanation}}</h1>
       </div>
@@ -15,9 +16,16 @@
 </template>
 
 <script>
+  import nonActiveImg from './non-active-icon.png';
+
   export default {
     name: 'BirthdayCard',
     props: ['birthdayCard'],
+    data() {
+      return {
+        nonActiveImg: nonActiveImg
+      }
+    }
   }
 </script>
 
@@ -36,7 +44,7 @@
 
 .birthday-card img {
   width: 90%;
-  padding: 25px 0;
+  padding: 25px 0 25px 25px;
 }
 
 .button {
@@ -52,7 +60,8 @@
   width: 30px;
   cursor: pointer;
   pointer-events: auto;
-  margin-left: 25px;
+  top: 5px;
+  margin-left: 35px;
   touch-action: manipulation;
 }
 
@@ -89,7 +98,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 90%;
+  height: 100%;
   background: rgba(255, 255, 255, 0.75);
   pointer-events: auto;
   transform: translateX(-100%);
@@ -108,6 +117,13 @@
 #nav-container:focus-within #nav-content {
   transform: none;
   opacity: 100%;
+}
+
+#favorite-icon {
+  width: 60%;
+  padding-left: 15px;
+  padding-top: 0;
+  margin-top: 10px;
 }
 
 </style>
