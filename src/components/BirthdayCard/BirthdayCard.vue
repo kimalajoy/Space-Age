@@ -89,7 +89,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 90%;
   background: rgba(255, 255, 255, 0.75);
   pointer-events: auto;
   transform: translateX(-100%);

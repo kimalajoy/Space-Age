@@ -30,6 +30,8 @@
                     dateOfBirth: this.dateOfBirth,
                 }
                 this.$emit('login-handler', newUser);
+                this.name = '';
+                this.dateOfBirth = '';
             }
         }
     }

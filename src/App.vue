@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <div id='nav'> -->
       <LoginPage v-on:login-handler='loginUser'/>
-      <CardSection v-if='isLoggedIn' v-bind:fetchedData="fetchedData"/>
+      <CardSection v-if='isLoggedIn' v-bind:userInfo= 'userInfo' v-bind:fetchedData="fetchedData"/>
       <!-- <router-link v-if='isLoggedIn' to='/LoginPage' v-on:click.native="logout()" replace>Logout</router-link> -->
     <!-- </div> -->
     <!-- <router-view/> -->
@@ -40,11 +40,6 @@ export default {
       this.userInfo = {...newUser};
       this.isLoggedIn = true;
       this.fetchData();
-      //clearInputs();
-    },
-    clearInputs() {
-      this.userInfo.name = '';
-      this.userInfo.dateOfBirth = '';
     },
     fetchData: async function () {
       const myRequest = `https://api.nasa.gov/planetary/apod?api_key=7dHxD8NJ7xkw5dxFuwR40aHbY6P1umxdxD0d48Oz&date=${this.userInfo.dateOfBirth}`
