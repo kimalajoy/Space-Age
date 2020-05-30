@@ -9,16 +9,24 @@
           <input type='date' v-model='dateOfBirth' required name='dateOfBirth' placeholder='Enter date of birth'>
           <input type='submit' value='Submit' class='btn'>
       </form>
+    <div class='header-btns'>
+      <button class="favorite-btn" type="button" name="favorites">
+        <img :src="favoriteIcon" alt="">
+      </button>
     </div>
+  </div>
 </template>
 
 <script>
+  import favoriteIcon from './favorite-icon.png';
+
     export default {
         name: 'LoginPage',
         data() {
             return {
                 name: '',
                 dateOfBirth: '',
+                favoriteIcon: favoriteIcon,
             }
         },
         methods: {
@@ -71,5 +79,16 @@
   font-size: 45px;
   text-transform: uppercase;
   margin: 8% 0px 0px 2%;
+}
+
+.favorite-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.favorite-btn img {
+  width: 30%;
+  position: relative;
+  top: 8px;
 }
 </style>
