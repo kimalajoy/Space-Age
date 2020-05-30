@@ -18,7 +18,7 @@ import BirthdayCard from '../BirthdayCard/BirthdayCard.vue';
     },
     props: {
       fetchedData: {
-        type: Array,
+        type: Function,
       },
       userInfo: {
         type: Object,
@@ -45,3 +45,13 @@ import BirthdayCard from '../BirthdayCard/BirthdayCard.vue';
 }
 
 </style>
+
+<!-- add favorites array to props - should take the date for later rendering -->
+<!-- isFavorite = true/false in props -->
+
+<!-- on favorite button on card: v-on:click='isFavorite = !isFavorite' -->
+<!-- this should toggle the images? v-show='isFavorite' -->
+
+<!-- methods: if button is clicked add current image to addFavorites array in props and -->
+
+<!-- how are we going to show multiple images for the favorites? Multiple fetches with each date? -->
