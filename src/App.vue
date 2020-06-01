@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <div id='nav'> -->
       <LoginPage :isLoggedIn= 'isLoggedIn' v-on:login-handler='loginUser'/>
-      <CardSection v-if='isLoggedIn' v-bind:userInfo= 'userInfo' v-bind:fetchedData="fetchedData"/>
+      <CardSection v-if='isLoggedIn' v-bind:userInfo= 'userInfo' v-bind:fetchedData="fetchedData" v-on:add-to-favorites="favoriteImage"/>
       <!-- <router-link v-if='isLoggedIn' to='/LoginPage' v-on:click.native="logout()" replace>Logout</router-link> -->
     <!-- </div> -->
     <!-- <router-view/> -->
@@ -26,7 +26,8 @@ export default {
           dateOfBirth: '',
         },
         isLoggedIn: false,
-        fetchedData: []
+        fetchedData: [],
+        favorites: []
     }
   },
   mounted() {
@@ -39,6 +40,7 @@ export default {
     loginUser(newUser) {
       this.userInfo = {...newUser};
       this.isLoggedIn = true;
+      this.favorites = [];
       this.fetchData();
     },
     fetchData: async function () {
@@ -50,8 +52,17 @@ export default {
         this.fetchedData = data
       })
       .catch(err => { console.error(err); });
+    },
+
+    favoriteImage(date) {
+      console.log(this.fetchedData, date)
+      //   this.fetchedData = this.fetchedData.filter(image => {
+      //     if(image.date === date) {
+      //       console.log('made-it')
+      //     }
+      // })
     }
-  }
+}
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="birthday-card">
+  <div class="birthday-card" v-bind:key='birthdayCard.date'>
     <iframe class="card-media" v-if="birthdayCard.media_type === 'video'" :src="birthdayCard.url"
       frameBorder="0"
       allow="autoplay; encrypted-media"
@@ -13,7 +13,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </div>
-        <button type="button" name="fav-btn" class="favorite-button">
+        <button @click="$emit('add-to-favorites', birthdayCard.date)">
           <img :src="nonActiveImg" id="favorite-icon" alt="telescope with clear heart">
         </button>
       <div id="nav-content" tabindex="0">
