@@ -1,8 +1,8 @@
 <template>
   <div>
     <div v-for="birthdayCard in fetchedData" v-bind:key="birthdayCard.date" class="card-section">
-      <h1 class="greeting-header">Welcome {{userInfo.name}}!</h1>
-      <h2 class="greeting-header">This picture was taken on: {{userInfo.dateOfBirth}}.</h2>
+      <!-- <h1 class="greeting-header">Welcome {{userInfo.name}}!</h1> -->
+      <h2 class="greeting-header">This picture was taken on: {{fetchedData.date}}.</h2>
       <BirthdayCard v-bind:birthdayCard="birthdayCard" v-on:add-to-favorites="$emit('add-to-favorites', fetchedData.date)" v-bind:isFavorited="isFavorited" />
     </div>
   </div>
