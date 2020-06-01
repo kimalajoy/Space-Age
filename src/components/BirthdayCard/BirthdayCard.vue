@@ -13,7 +13,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </div>
-        <button @click="$emit('add-to-favorites', birthdayCard.date)">
+        <button class="favorite-button" @click="$emit('add-to-favorites', birthdayCard.date)">
           <img :src="nonActiveImg" id="favorite-icon" alt="telescope with clear heart">
         </button>
       <div id="nav-content" tabindex="0">

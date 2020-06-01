@@ -23,7 +23,6 @@ import BirthdayCard from '../BirthdayCard/BirthdayCard.vue';
       userInfo: {
         type: Object,
       }
-      
     }
   }
 </script>
