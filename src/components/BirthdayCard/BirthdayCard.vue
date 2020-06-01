@@ -1,5 +1,5 @@
 <template>
-  <div class="birthday-card">
+  <div class="birthday-card"  v-bind:key='birthdayCard.date'>
     <img :src="birthdayCard.url" alt="" />
     <div id="nav-container">
       <div class="button" tabindex="0">
@@ -7,7 +7,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </div>
-        <img :src="nonActiveImg" id="favorite-icon" alt="telescope with clear heart">
+        <button @click="$emit('add-to-favorites', birthdayCard.date)">
+          <img :src="nonActiveImg" id="favorite-icon" alt="telescope with clear heart">
+        </button>
       <div id="nav-content" tabindex="0">
         <h1>{{this.birthdayCard.explanation}}</h1>
       </div>
