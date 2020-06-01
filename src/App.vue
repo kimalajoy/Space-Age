@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <div id='nav'> -->
       <LoginPage :isLoggedIn= 'isLoggedIn' v-on:login-handler='loginUser'/>
-      <CardSection v-if='isLoggedIn' v-bind:userInfo= 'userInfo' v-bind:fetchedData="fetchedData" v-on:add-to-favorites="favoriteImage"/>
+      <CardSection v-if='isLoggedIn' v-bind:userInfo= 'userInfo' v-bind:fetchedData="fetchedData" v-on:add-to-favorites="favoriteImage" v-bind:isFavorited="isFavorited"/>
       <!-- <router-link v-if='isLoggedIn' to='/LoginPage' v-on:click.native="logout()" replace>Logout</router-link> -->
     <!-- </div> -->
     <!-- <router-view/> -->
@@ -27,7 +27,8 @@ export default {
         },
         isLoggedIn: false,
         fetchedData: [],
-        favorites: []
+        favorites: [],
+        isFavorited: false
     }
   },
   mounted() {
@@ -59,9 +60,11 @@ export default {
       if (this.favorites.includes(date)) {
         filteredArray = this.favorites.filter(favorite => favorite !== date
         )
-        this.favorites = filteredArray
+        this.favorites = filteredArray;
+        this.isFavorited = false
       } else {
         this.favorites.push(date)
+        this.isFavorited = true
        }
      }
 

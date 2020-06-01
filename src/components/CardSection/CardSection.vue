@@ -3,7 +3,7 @@
     <div class="card-section" v-bind:key="index">
       <h1 class="greeting-header">Welcome {{userInfo.name}}!</h1>
       <h2 class="greeting-header">This picture was taken on: {{userInfo.dateOfBirth}}.</h2>
-      <BirthdayCard v-bind:birthdayCard="fetchedData" v-on:add-to-favorites="$emit('add-to-favorites', fetchedData.date)"/>
+      <BirthdayCard v-bind:birthdayCard="fetchedData" v-on:add-to-favorites="$emit('add-to-favorites', fetchedData.date)" v-bind:isFavorited="isFavorited"/>
     </div>
   </div>
 </template>
@@ -22,6 +22,9 @@ import BirthdayCard from '../BirthdayCard/BirthdayCard.vue';
       },
       userInfo: {
         type: Object,
+      },
+      isFavorited: {
+        type: Boolean
       }
     }
   }

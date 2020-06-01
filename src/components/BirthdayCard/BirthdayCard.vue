@@ -14,8 +14,10 @@
         <span class="icon-bar"></span>
       </div>
         <button class="favorite-button" @click="$emit('add-to-favorites', birthdayCard.date)">
-          <img :src="nonActiveImg" id="favorite-icon" alt="telescope with clear heart">
+          <img v-if="isFavorited"   :src='activeImg' id="favorite-icon" alt="telescope with filled heart">
+          <img v-else :src='nonActiveImg' id="favorite-icon" alt="telescope with clear heart">
         </button>
+
       <div id="nav-content" tabindex="0">
         <h1>{{this.birthdayCard.explanation}}</h1>
       </div>
@@ -25,13 +27,24 @@
 
 <script>
   import nonActiveImg from './non-active-icon.png';
+  import activeImg from './active-icon.png';
 
   export default {
     name: 'BirthdayCard',
-    props: ['birthdayCard'],
+    props: {
+      birthdayCard: {
+         type: Array
+      },
+      isFavorited: {
+        type: Boolean
+      }
+
+
+    },
     data() {
       return {
-        nonActiveImg: nonActiveImg
+        nonActiveImg: nonActiveImg,
+        activeImg: activeImg
       }
     }
   }
