@@ -50,7 +50,7 @@ export default {
     await fetch(myRequest)
       .then((res) => { return res.json() })
       .then((data) => {
-        this.fetchedData = data
+        this.fetchedData = [...this.fetchedData, data]
       })
       .catch(err => { console.error(err); });
     },
