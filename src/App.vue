@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- <div id='nav'> -->
-      <LoginPage v-on:login-handler='loginUser'/>
+      <LoginPage :isLoggedIn= 'isLoggedIn' v-on:login-handler='loginUser'/>
       <CardSection v-if='isLoggedIn' v-bind:userInfo= 'userInfo' v-bind:fetchedData="fetchedData" v-on:add-to-favorites="favoriteImage"/>
       <!-- <router-link v-if='isLoggedIn' to='/LoginPage' v-on:click.native="logout()" replace>Logout</router-link> -->
     <!-- </div> -->
@@ -62,7 +62,7 @@ export default {
       //     }
       // })
     }
-} 
+}
 }
 </script>
 

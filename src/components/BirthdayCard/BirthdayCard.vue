@@ -1,6 +1,12 @@
 <template>
-  <div class="birthday-card"  v-bind:key='birthdayCard.date'>
-    <img :src="birthdayCard.url" alt="" />
+  <div class="birthday-card" v-bind:key='birthdayCard.date'>
+    <iframe class="card-media" v-if="birthdayCard.media_type === 'video'" :src="birthdayCard.url"
+      frameBorder="0"
+      allow="autoplay; encrypted-media"
+      allowFullScreen
+      title="video"
+    />
+    <img v-else class="card-media" :src="birthdayCard.hdurl" alt="" />
     <div id="nav-container">
       <div class="button" tabindex="0">
         <span class="icon-bar"></span>
@@ -44,7 +50,7 @@
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
 }
 
-.birthday-card img {
+.card-media {
   width: 90%;
   padding: 25px 0 25px 25px;
 }
@@ -69,7 +75,7 @@
 
 .icon-bar {
   display: block;
-  width: 100%;
+  width: 110%;
   height: 3px;
   background: #aaa;
   transition: .3s;
@@ -100,7 +106,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 90%;
   background: rgba(255, 255, 255, 0.75);
   pointer-events: auto;
   transform: translateX(-100%);
@@ -122,10 +128,15 @@
 }
 
 #favorite-icon {
-  width: 60%;
-  padding-left: 15px;
-  padding-top: 0;
+  width: 70px;
+  padding: 0 10px;
   margin-top: 10px;
+}
+
+.favorite-button {
+  border: none;
+  background: transparent;
+  margin-right: 10px;
 }
 
 </style>

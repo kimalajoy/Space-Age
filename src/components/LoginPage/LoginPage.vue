@@ -6,13 +6,15 @@
       </div>
       <form @submit='getUserInfo' class='login-form'>
           <input type='text' v-model='name' name='name' required placeholder='name'>
-          <input type='date' v-model='dateOfBirth' required name='dateOfBirth' placeholder='Enter date of birth'>
+          <input type='date' v-model='dateOfBirth' required name='dateOfBirth'>
+          <!-- <input v-if="isLoggedIn" type='date' v-model='secondDate' required name='secondDateInput' > -->
           <input type='submit' value='Submit' class='btn'>
       </form>
     <div class='header-btns'>
       <button class="favorite-btn" type="button" name="favorites">
         <img :src="favoriteIcon" alt="">
       </button>
+      <button v-if="isLoggedIn" type="button" name="weekly-data">Show me more!</button>
     </div>
   </div>
 </template>
@@ -26,8 +28,14 @@
             return {
                 name: '',
                 dateOfBirth: '',
+                // isLoggedIn: false,
                 favoriteIcon: favoriteIcon,
             }
+        },
+        props: {
+          isLoggedIn: {
+            type: Boolean,
+          }
         },
         methods: {
             getUserInfo(e) {
@@ -40,6 +48,7 @@
                 this.$emit('login-handler', newUser);
                 this.name = '';
                 this.dateOfBirth = '';
+                this.isLoggedIn = true;
             }
         }
     }
