@@ -13,7 +13,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </div>
-        <img :src="nonActiveImg" id="favorite-icon" alt="telescope with clear heart">
+        <button type="button" name="fav-btn" class="favorite-button">
+          <img :src="nonActiveImg" id="favorite-icon" alt="telescope with clear heart">
+        </button>
       <div id="nav-content" tabindex="0">
         <h1>{{this.birthdayCard.explanation}}</h1>
       </div>
@@ -73,7 +75,7 @@
 
 .icon-bar {
   display: block;
-  width: 100%;
+  width: 110%;
   height: 3px;
   background: #aaa;
   transition: .3s;
@@ -127,8 +129,14 @@
 
 #favorite-icon {
   width: 70px;
-  padding: 0 15px;
+  padding: 0 10px;
   margin-top: 10px;
+}
+
+.favorite-button {
+  border: none;
+  background: transparent;
+  margin-right: 10px;
 }
 
 </style>
