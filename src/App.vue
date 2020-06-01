@@ -55,17 +55,20 @@ export default {
     },
 
     favoriteImage(date) {
-      console.log(this.fetchedData, date)
-      //   this.fetchedData = this.fetchedData.filter(image => {
-      //     if(image.date === date) {
-      //       console.log('made-it')
-      //     }
-      // })
-    }
-}
-}
-</script>
+      let filteredArray = [];
+      if (this.favorites.includes(date)) {
+        filteredArray = this.favorites.filter(favorite => favorite !== date
+        )
+        this.favorites = filteredArray
+      } else {
+        this.favorites.push(date)
+       }
+     }
 
+  }
+ }
+
+</script>
 
 <style>
 #app {
