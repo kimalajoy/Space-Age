@@ -28,7 +28,6 @@
             return {
                 name: '',
                 dateOfBirth: '',
-                // isLoggedIn: false,
                 favoriteIcon: favoriteIcon,
             }
         },
@@ -48,7 +47,6 @@
                 this.$emit('login-handler', newUser);
                 this.name = '';
                 this.dateOfBirth = '';
-                this.isLoggedIn = true;
             }
         }
     }

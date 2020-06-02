@@ -15,13 +15,9 @@ import CardSection from './components/CardSection/CardSection.vue'
 
 export default {
   name: 'App',
-  fetchedData: [],
   components: {
     LoginPage,
     CardSection
-  },
-  getFetchedData() {
-    return this.fetchedData;
   },
   data() {
     return {
@@ -30,7 +26,7 @@ export default {
           dateOfBirth: '',
         },
         isLoggedIn: false,
-        fetchedData: this.getFetchedData(),
+        fetchedData: [],
         favorites: [],
         isFavorited: false
     }
@@ -74,16 +70,9 @@ export default {
         const dateString = `${myDate.getFullYear()}-${('0' + (myDate.getMonth()+1)).slice(-2)}-${('0' + myDate.getDate()).slice(-2)}`;
 
        fetch(`https://api.nasa.gov/planetary/apod?api_key=7dHxD8NJ7xkw5dxFuwR40aHbY6P1umxdxD0d48Oz&start_date=${givenDate}&end_date=${dateString}`)
-       .then((res) => { return res.json() })
-       .then(data => console.log('data in fetchWeekly', data))
-       .then((data) => {
-         console.log('current data',this.fetchedData);
-         //delete this.fetchedData[1]; // WTF is this undefined coming from?
-        this.fetchedData = [this.fetchedData[0]];
-        this.fetchedData = this.fetchedData.concat(data);
-        console.log(this.fetchedData)
-      })
-      .catch(err => { console.error(err); 
+        .then(res => { return res.json(); })
+        .then(data => { this.fetchedData = data; })
+        .catch(err => { console.error(err);
       });
      }
   }
