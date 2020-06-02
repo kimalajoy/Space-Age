@@ -14,8 +14,7 @@
       <button class="favorite-btn" type="button" name="favorites">
         <img :src="favoriteIcon" alt="">
       </button>
-      <h1 v-if='isLoggedIn' class="greeting-header">Welcome {{this.name}}!</h1>
-      <button v-if="isLoggedIn" type="button" name="weekly-data">Show me more!</button>
+      <button v-if="isLoggedIn" @click="$emit ('weekData')" type="button" name="weekly-data">Show me more!</button>
     </div>
   </div>
 </template>
@@ -29,7 +28,6 @@
             return {
                 name: '',
                 dateOfBirth: '',
-                // isLoggedIn: false,
                 favoriteIcon: favoriteIcon,
             }
         },
@@ -47,8 +45,8 @@
                     dateOfBirth: this.dateOfBirth,
                 }
                 this.$emit('login-handler', newUser);
-                // this.dateOfBirth = '';
-                this.isLoggedIn = true;
+                this.name = '';
+                this.dateOfBirth = '';
             }
         }
     }
