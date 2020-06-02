@@ -7,14 +7,14 @@
       <form v-if='!isLoggedIn' @submit='getUserInfo' class='login-form'>
           <input v-if='!isLoggedIn' type='text' v-model='name' name='name' required placeholder='name'>
           <input type='date' v-model='dateOfBirth' required name='dateOfBirth'>
-          <!-- <input v-if="isLoggedIn" type='date' v-model='secondDate' required name='secondDateInput' > -->
           <input type='submit' value='Submit' class='btn'>
       </form>
     <div class='header-btns'>
       <button class="favorite-btn" type="button" name="favorites">
         <img :src="favoriteIcon" alt="">
       </button>
-      <button v-if="isLoggedIn" @click="$emit ('weekData')" type="button" name="weekly-data">Show me more!</button>
+      <button v-if="isLoggedIn" @click="$emit('weekData')" type="button" name="weekly-data">Show me more!</button>
+      <button v-if="isLoggedIn" @click="$emit('newSearch')" type="button" name="new-search">New birthday search</button>
     </div>
   </div>
 </template>

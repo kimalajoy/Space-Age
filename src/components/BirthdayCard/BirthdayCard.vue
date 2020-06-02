@@ -1,5 +1,4 @@
 <template>
-  <div>
   <div class="birthday-card" v-bind:key='birthdayCard.date'>
     <iframe class="card-media" v-if="birthdayCard.media_type === 'video'" :src="birthdayCard.url"
       frameBorder="0"
@@ -14,7 +13,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </div>
-        <button class="favorite-button" @click="$emit('add-to-favorites', birthdayCard.date)">
+        <button class="favorite-button"  @click='favoriteCard'>
           <img v-if="isFavorited" :src='activeImg' id="favorite-icon" alt="telescope with filled heart">
           <img v-else :src='nonActiveImg' id="favorite-icon" alt="telescope with clear heart">
         </button>
@@ -24,7 +23,6 @@
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -37,17 +35,21 @@
       birthdayCard: {
          type: Object
       },
-      isFavorited: {
-        type: Boolean
-      }
-
-
+      // isFavorited: {
+      //   type: Boolean
+      // }
     },
     data() {
-      console.log(this.birthdayCard.date)
       return {
         nonActiveImg: nonActiveImg,
-        activeImg: activeImg
+        activeImg: activeImg,
+        isFavorited: false,
+      }
+    },
+    methods: {
+      favoriteCard() {
+        this.isFavorited = !this.isFavorited;
+        this.$emit('add-to-favorites', this.birthdayCard.date);
       }
     }
   }
@@ -61,6 +63,7 @@
   justify-content: center;
   position: relative;
   top: 10%;
+  /* left: 10%; */
   border: 1px solid #000000;
   box-sizing: border-box;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
@@ -152,7 +155,7 @@
 .favorite-button {
   border: none;
   background: transparent;
-  margin-right: 10px;
+  margin: 10px 0px 15px 0px;
 }
 
 </style>

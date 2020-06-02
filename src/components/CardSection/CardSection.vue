@@ -3,7 +3,7 @@
     <div class="card-section" v-for='(birthdayCard, index) in fetchedData' v-bind:key='index'>
       <h1 class="greeting-header">Welcome {{userInfo.name}}!</h1>
       <h2 class="greeting-header">This picture was taken on: {{birthdayCard.date}}.</h2>
-      <BirthdayCard v-bind:birthdayCard="birthdayCard" v-on:add-to-favorites="$emit('add-to-favorites', birthdayCard.date)" v-bind:isFavorited="isFavorited"/>
+      <BirthdayCard :birthdayCard="birthdayCard"  v-on:add-to-favorites="$emit('add-to-favorites', birthdayCard.date)" />
     </div>
   </div>
 </template>
@@ -46,4 +46,3 @@ import BirthdayCard from '../BirthdayCard/BirthdayCard.vue';
 }
 
 </style>
-
