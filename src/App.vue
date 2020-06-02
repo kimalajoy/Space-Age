@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <div id='nav'> -->
       <LoginPage :isLoggedIn= 'isLoggedIn' v-on:login-handler='loginUser' v-on:newSearch='resetUserSearch' v-on:weekData='fetchWeeklyData'/>
-      <CardSection v-bind:userInfo='userInfo' v-bind:fetchedData="fetchedData" v-on:add-to-favorites="favoriteImage" v-bind:isFavorited="isFavorited"/>
+      <CardSection :userInfo='userInfo' :fetchedData="fetchedData" v-on:add-to-favorites="favoriteImage"/>
       <!-- <router-link v-if='isLoggedIn' to='/LoginPage' v-on:click.native="logout()" replace>Logout</router-link> -->
     <!-- </div> -->
     <!-- <router-view/> -->
@@ -28,7 +28,7 @@ export default {
         isLoggedIn: false,
         fetchedData: [],
         favorites: [],
-        isFavorited: false
+        // isFavorited: false
     }
   },
   methods: {
@@ -45,7 +45,6 @@ export default {
       .then((res) => { return res.json() })
       .then((data) => {
         this.fetchedData = [data];
-        console.log(this.fetchedData)
       })
       .catch(err => { console.error(err); });
     },
