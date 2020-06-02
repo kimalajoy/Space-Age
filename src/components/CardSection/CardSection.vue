@@ -7,7 +7,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import BirthdayCard from '../BirthdayCard/BirthdayCard.vue';
 

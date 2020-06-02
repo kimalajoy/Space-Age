@@ -1,4 +1,5 @@
 <template>
+  <div>
   <div class="birthday-card" v-bind:key='birthdayCard.date'>
     <iframe class="card-media" v-if="birthdayCard.media_type === 'video'" :src="birthdayCard.url"
       frameBorder="0"
@@ -23,6 +24,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -42,6 +44,7 @@
 
     },
     data() {
+      console.log(this.birthdayCard.date)
       return {
         nonActiveImg: nonActiveImg,
         activeImg: activeImg

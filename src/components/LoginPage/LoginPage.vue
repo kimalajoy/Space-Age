@@ -4,8 +4,8 @@
         <img class='logo-img' src='./Logo.png' />
         <h1 class='logo-text'>Space Age</h1>
       </div>
-      <form @submit='getUserInfo' class='login-form'>
-          <input type='text' v-model='name' name='name' required placeholder='name'>
+      <form v-if='!isLoggedIn' @submit='getUserInfo' class='login-form'>
+          <input v-if='!isLoggedIn' type='text' v-model='name' name='name' required placeholder='name'>
           <input type='date' v-model='dateOfBirth' required name='dateOfBirth'>
           <!-- <input v-if="isLoggedIn" type='date' v-model='secondDate' required name='secondDateInput' > -->
           <input type='submit' value='Submit' class='btn'>
