@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <!-- <div id='nav'> -->
-      <LoginPage :isLoggedIn= 'isLoggedIn' v-on:login-handler='loginUser' v-on:weekData='fetchWeeklyData'/>
-      <CardSection v-if='isLoggedIn' v-bind:userInfo='userInfo' v-bind:fetchedData="fetchedData" v-on:add-to-favorites="favoriteImage" v-bind:isFavorited="isFavorited"/>
+      <LoginPage :isLoggedIn= 'isLoggedIn' v-on:login-handler='loginUser' v-on:newSearch='resetUserSearch' v-on:weekData='fetchWeeklyData'/>
+      <CardSection v-bind:userInfo='userInfo' v-bind:fetchedData="fetchedData" v-on:add-to-favorites="favoriteImage" v-bind:isFavorited="isFavorited"/>
       <!-- <router-link v-if='isLoggedIn' to='/LoginPage' v-on:click.native="logout()" replace>Logout</router-link> -->
     <!-- </div> -->
     <!-- <router-view/> -->
@@ -74,7 +74,12 @@ export default {
         .then(data => { this.fetchedData = data; })
         .catch(err => { console.error(err);
       });
-     }
+    },
+    resetUserSearch() {
+      this.userInfo.name = '';
+      this.userInfo.dateOfBirth = '';
+      this.isLoggedIn = false;
+    }
   }
  }
 
@@ -89,4 +94,3 @@ export default {
   color: #2c3e50;
 }
 </style>
-

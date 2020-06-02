@@ -1,5 +1,4 @@
 <template>
-  <div>
   <div class="birthday-card" v-bind:key='birthdayCard.date'>
     <iframe class="card-media" v-if="birthdayCard.media_type === 'video'" :src="birthdayCard.url"
       frameBorder="0"
@@ -24,7 +23,6 @@
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -61,6 +59,7 @@
   justify-content: center;
   position: relative;
   top: 10%;
+  /* left: 10%; */
   border: 1px solid #000000;
   box-sizing: border-box;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);

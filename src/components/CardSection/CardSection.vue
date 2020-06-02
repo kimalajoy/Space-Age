@@ -46,4 +46,3 @@ import BirthdayCard from '../BirthdayCard/BirthdayCard.vue';
 }
 
 </style>
-
