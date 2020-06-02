@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <!-- <div id='nav'> -->
-      <LoginPage :isLoggedIn= 'isLoggedIn' v-on:login-handler='loginUser'/>
-      <CardSection v-if='isLoggedIn' v-bind:userInfo= 'userInfo' v-bind:fetchedData="fetchedData" v-on:add-to-favorites="favoriteImage" v-bind:isFavorited="isFavorited"/>
+      <LoginPage :isLoggedIn= 'isLoggedIn' v-on:login-handler='loginUser' v-on:weekData='fetchWeeklyData'/>
+      <CardSection v-if='isLoggedIn' v-bind:userInfo='userInfo' v-bind:fetchedData="fetchedData" v-on:add-to-favorites="favoriteImage" v-bind:isFavorited="isFavorited"/>
       <!-- <router-link v-if='isLoggedIn' to='/LoginPage' v-on:click.native="logout()" replace>Logout</router-link> -->
     <!-- </div> -->
     <!-- <router-view/> -->
@@ -15,9 +15,13 @@ import CardSection from './components/CardSection/CardSection.vue'
 
 export default {
   name: 'App',
+  fetchedData: [],
   components: {
     LoginPage,
     CardSection
+  },
+  getFetchedData() {
+    return this.fetchedData;
   },
   data() {
     return {
@@ -26,16 +30,10 @@ export default {
           dateOfBirth: '',
         },
         isLoggedIn: false,
-        fetchedData: [],
+        fetchedData: this.getFetchedData(),
         favorites: [],
         isFavorited: false
     }
-  },
-  mounted() {
-    // if(!this.isLoggedIn) {
-    //   this.$router.replace({ name: 'LoginPage' });
-    // } else {
-    // }
   },
   methods: {
     loginUser(newUser) {
@@ -50,11 +48,11 @@ export default {
     await fetch(myRequest)
       .then((res) => { return res.json() })
       .then((data) => {
-        this.fetchedData = data
+        this.fetchedData = [data];
+        console.log(this.fetchedData)
       })
       .catch(err => { console.error(err); });
     },
-
     favoriteImage(date) {
       let filteredArray = [];
       if (this.favorites.includes(date)) {
@@ -66,8 +64,28 @@ export default {
         this.favorites.push(date)
         this.isFavorited = true
        }
-     }
+     },
+     fetchWeeklyData() {
+       const givenDate = this.userInfo.dateOfBirth;
+       const startDate = new Date(givenDate);
+       const endDate = startDate.setDate(startDate.getDate() + 7);
+       const myDate = new Date(endDate);
 
+        const dateString = `${myDate.getFullYear()}-${('0' + (myDate.getMonth()+1)).slice(-2)}-${('0' + myDate.getDate()).slice(-2)}`;
+
+       fetch(`https://api.nasa.gov/planetary/apod?api_key=7dHxD8NJ7xkw5dxFuwR40aHbY6P1umxdxD0d48Oz&start_date=${givenDate}&end_date=${dateString}`)
+       .then((res) => { return res.json() })
+       .then(data => console.log('data in fetchWeekly', data))
+       .then((data) => {
+         console.log('current data',this.fetchedData);
+         //delete this.fetchedData[1]; // WTF is this undefined coming from?
+        this.fetchedData = [this.fetchedData[0]];
+        this.fetchedData = this.fetchedData.concat(data);
+        console.log(this.fetchedData)
+      })
+      .catch(err => { console.error(err); 
+      });
+     }
   }
  }
 
@@ -82,3 +100,4 @@ export default {
   color: #2c3e50;
 }
 </style>
+

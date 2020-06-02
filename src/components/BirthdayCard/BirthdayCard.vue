@@ -14,7 +14,7 @@
         <span class="icon-bar"></span>
       </div>
         <button class="favorite-button" @click="$emit('add-to-favorites', birthdayCard.date)">
-          <img v-if="isFavorited"   :src='activeImg' id="favorite-icon" alt="telescope with filled heart">
+          <img v-if="isFavorited" :src='activeImg' id="favorite-icon" alt="telescope with filled heart">
           <img v-else :src='nonActiveImg' id="favorite-icon" alt="telescope with clear heart">
         </button>
 
@@ -33,7 +33,7 @@
     name: 'BirthdayCard',
     props: {
       birthdayCard: {
-         type: Array
+         type: Object
       },
       isFavorited: {
         type: Boolean

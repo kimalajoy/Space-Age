@@ -14,7 +14,7 @@
       <button class="favorite-btn" type="button" name="favorites">
         <img :src="favoriteIcon" alt="">
       </button>
-      <button v-if="isLoggedIn" type="button" name="weekly-data">Show me more!</button>
+      <button v-if="isLoggedIn" @click="$emit ('weekData')" type="button" name="weekly-data">Show me more!</button>
     </div>
   </div>
 </template>
