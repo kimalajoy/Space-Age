@@ -13,8 +13,8 @@ describe('LoginPage',() => {
    wrapper.destroy();
   });
 
-  it('Should render the site logo and an intial birthday form', () => {
-    
+  it.skip('Should render the site logo and an intial birthday form', () => {
+
   })
 })
 

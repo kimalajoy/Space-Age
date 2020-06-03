@@ -11,7 +11,7 @@
       </form>
     <div class='header-btns'>
       <button @click="$emit('showOnlyFavorites', 'beans!')" class="favorite-btn" type="button" name="favorites">
-        <img :src="favoriteIcon" alt="">
+        <img :src="require('./favorite-icon.png')" alt="">
       </button>
       <button v-if="isLoggedIn" @click="$emit('weekData')" type="button" name="weekly-data">Show me more!</button>
       <button v-if="isLoggedIn" @click="$emit('newSearch')" type="button" name="new-search">New birthday search</button>
@@ -59,7 +59,6 @@
   display: flex;
   font-weight: bold;
   height: 100px;
-  /* justify-content: space-between; */
   position: fixed;
   top: 0;
   left: 0;
