@@ -26,9 +26,6 @@
 </template>
 
 <script>
-  // import nonActiveImg from './non-active-icon.png';
-  // import activeImg from './active-icon.png';
-
   export default {
     name: 'BirthdayCard',
     props: {
@@ -62,7 +59,6 @@
   justify-content: center;
   position: relative;
   top: 10%;
-  /* left: 10%; */
   border: 1px solid #000000;
   box-sizing: border-box;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);

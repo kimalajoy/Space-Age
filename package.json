@@ -44,22 +44,22 @@
     "rules": {}
   },
   "jest": {
-    "moduleFileExtensions": ["js", "json", "vue"],
-    "transform": {
-      "^.+\\.js$": "babel-jest",
-      "^.+\\.vue$": "vue-jest"
-    },
-    "globals": {
-      "vue-jest": {
-        "transform": {
-          "your-custom-block": "./custom-block-processor.js"
-        }
-      }
-    }
-  },
+     "moduleFileExtensions": ["js", "json", "vue"],
+     "transform": {
+       "^.+\\.js$": "babel-jest",
+       "^.+\\.vue$": "vue-jest"
+     },
+     "globals": {
+       "vue-jest": {
+         "transform": {
+           "your-custom-block": "./custom-block-processor.js"
+         }
+       }
+     }
+   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
-}
+    ]
+  }
