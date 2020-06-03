@@ -20,7 +20,7 @@
 </template>
 
 <script>
-  import favoriteIcon from './favorite-icon.png';
+  // import favoriteIcon from './favorite-icon.png';
 
     export default {
         name: 'LoginPage',
@@ -28,7 +28,7 @@
             return {
                 name: '',
                 dateOfBirth: '',
-                favoriteIcon: favoriteIcon,
+                // favoriteIcon: favoriteIcon,
             }
         },
         props: {
