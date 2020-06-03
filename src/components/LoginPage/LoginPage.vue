@@ -2,16 +2,16 @@
     <div class='header'>
       <div class='logo'>
         <img class='logo-img' src='./Logo.png' alt='planet with a party hat'>
-        <h1> class='logo-text'>Space Age</h1>
+        <h1 class='logo-text'>Space Age</h1>
       </div>
       <form v-if='!isLoggedIn' @submit='getUserInfo' class='login-form'>
           <input v-if='!isLoggedIn' type='text' v-model='name' name='name' required placeholder='name'>
           <input type='date' data-testid='date-input' v-model='dateOfBirth' required name='dateOfBirth'>
-          <input type='submit' value='Submit' class='btn'>
+          <input type='submit' value='Submit' class='submit-btn'>
       </form>
     <div class='header-btns'>
       <button @click="$emit('showOnlyFavorites', 'beans!')" class="favorite-btn" type="button" name="favorites">
-        <img :src="favoriteIcon" alt="">
+        <img :src="require('./favorite-icon.png')" alt="">
       </button>
       <button v-if="isLoggedIn" @click="$emit('weekData')" type="button" name="weekly-data">Show me more!</button>
       <button v-if="isLoggedIn" @click="$emit('newSearch')" type="button" name="new-search">New birthday search</button>
@@ -28,7 +28,6 @@
             return {
                 name: '',
                 dateOfBirth: '',
-                // favoriteIcon: favoriteIcon,
             }
         },
         props: {

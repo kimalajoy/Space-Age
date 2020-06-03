@@ -14,8 +14,8 @@
         <span class="icon-bar"></span>
       </div>
         <button class="favorite-button"  @click='favoriteCard'>
-          <img v-if="isFavorited" :src='activeImg' id="favorite-icon" alt="telescope with filled heart">
-          <img v-else :src='nonActiveImg' id="favorite-icon" alt="telescope with clear heart">
+          <img v-if="isFavorited" :src="require('./active-icon.png')" id="favorite-icon" alt="telescope with filled heart">
+          <img v-else :src="require('./non-active-icon.png')" id="favorite-icon" alt="telescope with clear heart">
         </button>
 
       <div id="nav-content" tabindex="0">
@@ -26,8 +26,8 @@
 </template>
 
 <script>
-  import nonActiveImg from './non-active-icon.png';
-  import activeImg from './active-icon.png';
+  // import nonActiveImg from './non-active-icon.png';
+  // import activeImg from './active-icon.png';
 
   export default {
     name: 'BirthdayCard',
@@ -41,10 +41,10 @@
       }
     },
     data() {
-      return {
-        nonActiveImg: nonActiveImg,
-        activeImg: activeImg,
-      }
+      // return {
+      //   nonActiveImg: nonActiveImg,
+      //   activeImg: activeImg,
+      // }
     },
     methods: {
       favoriteCard() {
