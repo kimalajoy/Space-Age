@@ -9,6 +9,11 @@ Space Age is an app that allows you to enter your name and a birthdate. An image
 
 Incorporating a new technology into our application that isn’t explicitly taught will give us the opportunity to differentiate ourselves from other Turing grads and give a great story to tell in the job interview - employers love to hear about experiences being self driven and learning new technologies outside of the standard Turing curriculum.
 
+## Requirements
+
+- A minimum viable product (MVP) idea that solves a problem for your users
+- The use of at least one external API
+
 ## Tech Used
 
 - Dev Tools
