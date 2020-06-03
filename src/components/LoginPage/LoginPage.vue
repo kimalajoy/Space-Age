@@ -2,7 +2,7 @@
     <div class='header'>
       <div class='logo'>
         <img class='logo-img' src='./Logo.png' alt='planet with a party hat'>
-        <h1 class='logo-text'>Space Age</h1>
+        <h1 class='logo-text'>Space Age<span class='sub-header-text'>A birthday app for kids and young adults</span></h1>
       </div>
       <form v-if='!isLoggedIn' @submit='getUserInfo' class='login-form'>
           <input v-if='!isLoggedIn' type='text' v-model='name' name='name' required placeholder='name'>
@@ -75,17 +75,24 @@
   margin-top: 1%;
   display: block;
   padding: 0 12px;
-  width: 22%;
+  width: 20%;
   position: relative;
   top: 10px;
 
 }
 
 .logo-text {
-  font-size: 45px;
+  font-size: 42px;
   text-transform: uppercase;
   margin: 8% 0px 0px 2%;
 }
+
+.sub-header-text {
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-left: 3px;
+}
+
 
 .favorite-btn {
   background-color: transparent;
