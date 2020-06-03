@@ -23,7 +23,7 @@
   // import favoriteIcon from './favorite-icon.png';
 
     export default {
-        name: 'LoginPage',
+        name: 'Header',
         data() {
             return {
                 name: '',
