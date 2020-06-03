@@ -6,7 +6,7 @@
       allowFullScreen
       title="video"
     />
-    <img v-else class="card-media" :src="birthdayCard.hdurl" alt="" />
+    <img v-else class="card-media" :src="birthdayCard.url" alt="" />
     <div id="nav-container">
       <div class="button" tabindex="0">
         <span class="icon-bar"></span>
