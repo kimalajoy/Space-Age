@@ -37,12 +37,6 @@
         default: false,
       }
     },
-    data() {
-      // return {
-      //   nonActiveImg: nonActiveImg,
-      //   activeImg: activeImg,
-      // }
-    },
     methods: {
       favoriteCard() {
         this.$emit('add-to-favorites', this.birthdayCard.date);

@@ -26,6 +26,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "jest": "^26.0.1",
+    "jest-transform-stub": "^2.0.0",
     "vue-jest": "^3.0.5",
     "vue-template-compiler": "^2.6.11"
   },
@@ -44,22 +45,27 @@
     "rules": {}
   },
   "jest": {
-     "moduleFileExtensions": ["js", "json", "vue"],
-     "transform": {
-       "^.+\\.js$": "babel-jest",
-       "^.+\\.vue$": "vue-jest"
-     },
-     "globals": {
-       "vue-jest": {
-         "transform": {
-           "your-custom-block": "./custom-block-processor.js"
-         }
-       }
-     }
-   },
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.vue$": "vue-jest",
+      ".+\\.(css|styl|less|sass|scss|png|jpg|svg|ttf|woff|woff2)$": "jest-transform-stub",
+      "^.+\\.js$": "babel-jest"
+    },
+    "globals": {
+      "vue-jest": {
+        "transform": {
+          "your-custom-block": "./custom-block-processor.js"
+        }
+      }
+    }
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not dead"
-    ]
-  }
+  ]
+}

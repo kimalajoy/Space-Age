@@ -13,8 +13,8 @@
       <button @click="$emit('showOnlyFavorites', 'beans!')" class="favorite-btn" type="button" name="favorites">
         <img :src="require('./favorite-icon.png')" alt="">
       </button>
-      <button v-if="isLoggedIn" @click="$emit('weekData')" type="button" name="weekly-data">Show me more!</button>
-      <button v-if="isLoggedIn" @click="$emit('newSearch')" type="button" name="new-search">New birthday search</button>
+      <button v-if="isLoggedIn" @click="$emit('weekData')" type="button" class="weekly-data" name="weekly-data">Show me more!</button>
+      <button v-if="isLoggedIn" @click="$emit('newSearch')" type="button" class="new-search" name="new-search">New birthday search</button>
     </div>
   </div>
 </template>
