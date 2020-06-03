@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-      <LoginPage @showOnlyFavorites="toggleFavorites($event)" :isLoggedIn= 'isLoggedIn' v-on:login-handler='loginUser' v-on:newSearch='resetUserSearch' v-on:weekData='fetchWeeklyData'/>
+      <Header @showOnlyFavorites="toggleFavorites($event)" :isLoggedIn= 'isLoggedIn' v-on:login-handler='loginUser' v-on:newSearch='resetUserSearch' v-on:weekData='fetchWeeklyData'/>
       <CardSection :favorites="this.favorites" :showOnlyFavorites="this.favoritesOnly" @cardSectionSaid="messageLogin($event)" :userInfo='userInfo' :fetchedData="fetchedData" v-on:add-to-favorites="favoriteImage"/>
   </div>
 </template>
 
 <script>
-import LoginPage from './components/LoginPage/LoginPage.vue';
+import Header from './components/Header/Header.vue';
 import CardSection from './components/CardSection/CardSection.vue'
 
 export default {
   name: 'App',
   components: {
-    LoginPage,
+    Header,
     CardSection
   },
   data() {

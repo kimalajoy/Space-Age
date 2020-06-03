@@ -26,8 +26,6 @@
 </template>
 
 <script>
-
-
   export default {
     name: 'BirthdayCard',
     props: {
@@ -37,12 +35,6 @@
       isFavorited: {
         type: Boolean,
         default: false,
-      }
-    },
-    data() {
-      return {
-        nonActiveImg: nonActiveImg,
-        activeImg: activeImg,
       }
     },
     methods: {

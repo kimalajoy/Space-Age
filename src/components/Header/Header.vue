@@ -2,33 +2,31 @@
     <div class='header'>
       <div class='logo'>
         <img class='logo-img' src='./Logo.png' alt='planet with a party hat'>
-        <h1 class='logo-text'>Space Age<span class='sub-header-text'>A birthday app for kids and young adults</span></h1>
+        <h1 class='logo-text'>Space Age</h1>
       </div>
       <form v-if='!isLoggedIn' @submit='getUserInfo' class='login-form'>
           <input v-if='!isLoggedIn' type='text' v-model='name' name='name' required placeholder='name'>
-          <input type='date' min="1995-06-21" data-testid='date-input' v-model='dateOfBirth' required name='dateOfBirth'>
-          <input type='submit' value='Submit' class='btn'>
+          <input type='date' data-testid='date-input' v-model='dateOfBirth' required name='dateOfBirth'>
+          <input type='submit' value='Submit' class='submit-btn'>
       </form>
     <div class='header-btns'>
       <button @click="$emit('showOnlyFavorites', 'beans!')" class="favorite-btn" type="button" name="favorites">
         <img :src="require('./favorite-icon.png')" alt="">
       </button>
-      <button v-if="isLoggedIn" @click="$emit('weekData')" type="button" name="weekly-data">Show me more!</button>
-      <button v-if="isLoggedIn" @click="$emit('newSearch')" type="button" name="new-search">New birthday search</button>
+      <button v-if="isLoggedIn" @click="$emit('weekData')" type="button" class="weekly-data" name="weekly-data">Show me more!</button>
+      <button v-if="isLoggedIn" @click="$emit('newSearch')" type="button" class="new-search" name="new-search">New birthday search</button>
     </div>
   </div>
 </template>
 
 <script>
-  // import favoriteIcon from './favorite-icon.png';
 
     export default {
-        name: 'LoginPage',
+        name: 'Header',
         data() {
             return {
                 name: '',
                 dateOfBirth: '',
-                // favoriteIcon: favoriteIcon,
             }
         },
         props: {
@@ -75,24 +73,17 @@
   margin-top: 1%;
   display: block;
   padding: 0 12px;
-  width: 20%;
+  width: 22%;
   position: relative;
   top: 10px;
 
 }
 
 .logo-text {
-  font-size: 42px;
+  font-size: 45px;
   text-transform: uppercase;
   margin: 8% 0px 0px 2%;
 }
-
-.sub-header-text {
-  font-size: 12px;
-  text-transform: uppercase;
-  margin-left: 3px;
-}
-
 
 .favorite-btn {
   background-color: transparent;
