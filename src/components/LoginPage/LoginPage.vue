@@ -2,11 +2,11 @@
     <div class='header'>
       <div class='logo'>
         <img class='logo-img' src='./Logo.png' alt='planet with a party hat'>
-        <h1> class='logo-text'>Space Age</h1>
+        <h1 class='logo-text'>Space Age</h1>
       </div>
       <form v-if='!isLoggedIn' @submit='getUserInfo' class='login-form'>
           <input v-if='!isLoggedIn' type='text' v-model='name' name='name' required placeholder='name'>
-          <input type='date' data-testid='date-input' v-model='dateOfBirth' required name='dateOfBirth'>
+          <input type='date' min="1995-06-21" data-testid='date-input' v-model='dateOfBirth' required name='dateOfBirth'>
           <input type='submit' value='Submit' class='btn'>
       </form>
     <div class='header-btns'>
