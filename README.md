@@ -2,7 +2,7 @@
 
 ## Overview
 
-Space Age is an app that allows you to enter your birthdate and a birthday card taken on that date will render to the page. You can also view more images that were taken on you birth date. We used vue.js to create this application.
+Space Age is an app that allows you to enter your name and a birthdate. An image that was taken on that date will render to the page in the form of a card with additional information in regards to the image. You can also view more images that were taken the week of your birthday. We used vue.js to create this application.
 
 
 ## Learning Goals
