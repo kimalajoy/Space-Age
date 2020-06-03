@@ -1,11 +1,13 @@
 <template>
-  <div>
-    <div class="card-section" v-for='(birthdayCard, index) in fetchedData' v-bind:key='index'>
-      <h1 class="greeting-header">Welcome {{userInfo.name}}!</h1>
-      <h2 class="greeting-header">This picture was taken on: {{birthdayCard.date}}.</h2>
-      <BirthdayCard :birthdayCard="birthdayCard"  v-on:add-to-favorites="$emit('add-to-favorites', birthdayCard.date)" />
+    <div class="card-section">
+      <div v-for="(birthdayCard, index) in fetchedData" v-bind:key="index">
+        <div v-if="!showOnlyFavorites || (showOnlyFavorites && favorites.includes(birthdayCard.date))">
+          <h1 class="greeting-header">Welcome {{userInfo.name}}!</h1>
+          <h2 class="greeting-header">This picture was taken on: {{birthdayCard.date}}.</h2>
+          <BirthdayCard :birthdayCard="birthdayCard" :isFavorited="favorites.includes(birthdayCard.date)" v-on:add-to-favorites="$emit('add-to-favorites', birthdayCard.date)" />
+        </div>
+      </div>
     </div>
-  </div>
 </template>
 <script>
 import BirthdayCard from '../BirthdayCard/BirthdayCard.vue';
@@ -22,8 +24,12 @@ import BirthdayCard from '../BirthdayCard/BirthdayCard.vue';
       userInfo: {
         type: Object,
       },
-      isFavorited: {
-        type: Boolean
+      favorites: {
+        type: Array,
+      },
+      showOnlyFavorites: {
+        type: Boolean,
+        default: false
       }
     }
   }
@@ -31,7 +37,6 @@ import BirthdayCard from '../BirthdayCard/BirthdayCard.vue';
 
 <style scoped>
 .card-section {
-  height: 95vh;
   margin-top: 100px;
   display: flex;
   justify-content: center;
@@ -41,7 +46,6 @@ import BirthdayCard from '../BirthdayCard/BirthdayCard.vue';
 .greeting-header {
   margin-bottom: 0;
   position: relative;
-  top: 45px;
   text-transform: capitalize;
 }
 
