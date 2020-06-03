@@ -58,7 +58,6 @@
   display: flex;
   font-weight: bold;
   height: 100px;
-  /* justify-content: space-between; */
   position: fixed;
   top: 0;
   left: 0;
