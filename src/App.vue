@@ -41,7 +41,7 @@ export default {
     await fetch(myRequest)
       .then((res) => { return res.json() })
       .then((data) => {
-        this.fetchedData = [data];
+        this.fetchedData = [...this.fetchedData, data];
       })
       .catch(err => { console.error(err); });
     },
@@ -57,6 +57,14 @@ export default {
         this.isFavorited = true
        }
      },
+     // findFavorites() {
+     //   const favoriteCardDates = this.favorites;
+     //   const favoriteCardsToDisplay = favoriteCardDates.forEach(favorite => {
+     //     const filteredArray = [];
+     //
+     //
+     //   })
+     // },
      fetchWeeklyData() {
        const givenDate = this.userInfo.dateOfBirth;
        const startDate = new Date(givenDate);
