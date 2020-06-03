@@ -35,20 +35,19 @@
       birthdayCard: {
          type: Object
       },
-      // isFavorited: {
-      //   type: Boolean
-      // }
+      isFavorited: {
+        type: Boolean,
+        default: false,
+      }
     },
     data() {
       return {
         nonActiveImg: nonActiveImg,
         activeImg: activeImg,
-        isFavorited: false,
       }
     },
     methods: {
       favoriteCard() {
-        this.isFavorited = !this.isFavorited;
         this.$emit('add-to-favorites', this.birthdayCard.date);
       }
     }

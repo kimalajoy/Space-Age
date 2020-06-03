@@ -10,7 +10,7 @@
           <input type='submit' value='Submit' class='btn'>
       </form>
     <div class='header-btns'>
-      <button class="favorite-btn" type="button" name="favorites">
+      <button @click="$emit('showOnlyFavorites', 'beans!')" class="favorite-btn" type="button" name="favorites">
         <img :src="favoriteIcon" alt="">
       </button>
       <button v-if="isLoggedIn" @click="$emit('weekData')" type="button" name="weekly-data">Show me more!</button>
@@ -47,7 +47,7 @@
                 this.$emit('login-handler', newUser);
                 this.name = '';
                 this.dateOfBirth = '';
-            }
+            },
         }
     }
 </script>
@@ -98,4 +98,5 @@
   position: relative;
   top: 8px;
 }
+
 </style>

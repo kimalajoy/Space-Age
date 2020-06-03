@@ -1,11 +1,7 @@
 <template>
   <div id="app">
-    <!-- <div id='nav'> -->
-      <LoginPage :isLoggedIn= 'isLoggedIn' v-on:login-handler='loginUser' v-on:newSearch='resetUserSearch' v-on:weekData='fetchWeeklyData'/>
-      <CardSection :userInfo='userInfo' :fetchedData="fetchedData" v-on:add-to-favorites="favoriteImage"/>
-      <!-- <router-link v-if='isLoggedIn' to='/LoginPage' v-on:click.native="logout()" replace>Logout</router-link> -->
-    <!-- </div> -->
-    <!-- <router-view/> -->
+      <LoginPage @showOnlyFavorites="toggleFavorites($event)" :isLoggedIn= 'isLoggedIn' v-on:login-handler='loginUser' v-on:newSearch='resetUserSearch' v-on:weekData='fetchWeeklyData'/>
+      <CardSection :favorites="this.favorites" :showOnlyFavorites="this.favoritesOnly" @cardSectionSaid="messageLogin($event)" :userInfo='userInfo' :fetchedData="fetchedData" v-on:add-to-favorites="favoriteImage"/>
   </div>
 </template>
 
@@ -28,7 +24,8 @@ export default {
         isLoggedIn: false,
         fetchedData: [],
         favorites: [],
-        // isFavorited: false
+        messageLogin: '',
+        favoritesOnly: false
     }
   },
   methods: {
@@ -86,6 +83,9 @@ export default {
       this.userInfo.name = '';
       this.userInfo.dateOfBirth = '';
       this.isLoggedIn = false;
+    },
+    toggleFavorites() {
+      this.favoritesOnly = !this.favoritesOnly;
     }
   }
  }
@@ -100,4 +100,5 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
 </style>
