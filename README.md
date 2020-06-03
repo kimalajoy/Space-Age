@@ -1,4 +1,4 @@
-# age-of-art
+# Space Age
 
 ## Project setup
 ```
@@ -22,4 +22,4 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-# Age_of_Art
+# Space Age
