@@ -1,12 +1,12 @@
-import LoginPage from './LoginPage.vue';
+import Header from './Header.vue';
 import { shallowMount } from '@vue/test-utils';
 
 let wrapper;
 
-describe('LoginPage',() => {
+describe('Header',() => {
 
   beforeEach(() => {
-    wrapper = shallowMount(LoginPage, {
+    wrapper = shallowMount(Header, {
       data() {
         return {
           name: '',
@@ -74,7 +74,7 @@ describe('LoginPage',() => {
   });
 
   it('Should render a Show Me More and a New Birthday Search btns once user is logged in', () => {
-    wrapper = shallowMount(LoginPage, {
+    wrapper = shallowMount(Header, {
       data() {
         return {
           name: '',
