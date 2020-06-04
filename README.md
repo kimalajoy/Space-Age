@@ -24,7 +24,21 @@ Incorporating a new technology into our application that isn’t explicitly taug
 
 - Vue Dev Tools
 
-## Images
+## App In Action
+### Initial birthday search 
+![space-age-gif](https://media.giphy.com/media/H4hlJ5wtis0Mbp0Mw6/giphy.gif)
+
+### Viewing card info/ Favoriting card
+![space-age-gif](https://media.giphy.com/media/dXuXsmiiqGZYVmEdHu/giphy.gif)
+
+### Pulling the next week worth of cards to view and favorite
+![space-age-gif](https://media.giphy.com/media/H6zShO0qlVy1gYp8aZ/giphy.gif)
+
+### Filtering the page by your favorited cards 
+![space-age-gif](https://media.giphy.com/media/h5R8N5Lfw1rDxZOrxZ/giphy.gif)
+
+### Creating form for new birthday search 
+![space-age-gif](https://media.giphy.com/media/S8BZTAaobYtQRChllC/giphy.gif)
 
 ## Project setup
 ```
