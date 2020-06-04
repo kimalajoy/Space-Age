@@ -57,14 +57,6 @@ export default {
         this.isFavorited = true
        }
      },
-     // findFavorites() {
-     //   const favoriteCardDates = this.favorites;
-     //   const favoriteCardsToDisplay = favoriteCardDates.forEach(favorite => {
-     //     const filteredArray = [];
-     //
-     //
-     //   })
-     // },
      fetchWeeklyData() {
        const givenDate = this.userInfo.dateOfBirth;
        const startDate = new Date(givenDate);
