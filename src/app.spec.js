@@ -1,6 +1,7 @@
 import { shallowMount } from "@vue/test-utils";
 import App from './App.vue';
 let wrapper;
+
 describe('App', () => {
 
   beforeEach(() => {
@@ -12,7 +13,7 @@ describe('App', () => {
   })
 
   it('should render the App', () => {
-    expect(wrapper.exists()).toBe(true)
+    expect(wrapper.exists()).toBe(true);
   });
   
 });
