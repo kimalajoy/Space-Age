@@ -30,7 +30,7 @@ describe('Header',() => {
     const dateInput = wrapper.find('input[type="date"]');
     const submitBtn = wrapper.find('.submit-btn');
 
-    expect(wrapper.text()).toBe("Space Age");
+    expect(wrapper.text()).toBe("Space Age A birthday app for kids and young adults");
     expect(logoImg.exists()).toBe(true);
     expect(nameInput.exists()).toBe(true);
     expect(dateInput.exists()).toBe(true);

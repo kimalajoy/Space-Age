@@ -47,46 +47,45 @@
 
 <style scoped>
 .birthday-card {
-  width: 80%;
-  height: 90vh;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
   display: flex;
+  height: 90vh;
   justify-content: center;
   position: relative;
   top: 10%;
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 .card-media {
-  width: 90%;
   padding: 25px 0 25px 25px;
+  width: 1000px;
 }
 
 .button {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 1;
-  border: 0;
   background: transparent;
   border-radius: 0;
-  height: 70px;
-  width: 30px;
+  border: 0;
   cursor: pointer;
-  pointer-events: auto;
-  top: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+  justify-content: center;
   margin-left: 35px;
+  pointer-events: auto;
+  position: relative;
+  top: 5px;
   touch-action: manipulation;
+  width: 30px;
+  z-index: 1;
 }
 
 .icon-bar {
-  display: block;
-  width: 110%;
-  height: 3px;
   background: #aaa;
+  display: block;
+  height: 3px;
   transition: .3s;
+  width: 110%;
 }
 
 .icon-bar + .icon-bar {
@@ -107,19 +106,19 @@
 }
 
 #nav-content {
-  opacity: 0;
-  padding: 20px;
-  width: 90%;
+  background: rgba(255, 255, 255, 0.75);
+  height: 90%;
+  left: 0;
   max-width: 400px;
+  opacity: 0;
+  overflow-x: scroll;
+  padding: 20px;
+  pointer-events: auto;
   position: absolute;
   top: 0;
-  left: 0;
-  height: 90%;
-  background: rgba(255, 255, 255, 0.75);
-  pointer-events: auto;
   transform: translateX(-100%);
   transition: all .5s;
-  overflow-x: scroll;
+  width: 90%;
 }
 
 #nav-content:hover {
@@ -131,19 +130,19 @@
 }
 
 #nav-container:focus-within #nav-content {
-  transform: none;
   opacity: 100%;
+  transform: none;
 }
 
 #favorite-icon {
-  width: 70px;
-  padding: 0 10px;
   margin-top: 10px;
+  padding: 0 10px;
+  width: 70px;
 }
 
 .favorite-button {
-  border: none;
   background: transparent;
+  border: none;
   margin: 10px 0px 15px 0px;
 }
 
