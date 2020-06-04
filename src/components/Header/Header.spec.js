@@ -42,7 +42,6 @@ describe('Header',() => {
     const mockSumbit = jest.fn();
     const nameInput = wrapper.find('input[type="text"]');
     const dateInput = wrapper.find('input[type="date"]');
-    const submitBtn = wrapper.find('.submit-btn');
 
     nameInput.setValue('');
     dateInput.setValue('');
@@ -62,7 +61,6 @@ describe('Header',() => {
   it('Should pass down the correct data values', () => {
     const nameInput = wrapper.find('input[type="text"]');
     const dateInput = wrapper.find('input[type="date"]');
-    const submitBtn = wrapper.find('.submit-btn');
 
     nameInput.value = 'Megan';
     dateInput.value = '2000-07-26';
