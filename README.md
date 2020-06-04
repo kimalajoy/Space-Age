@@ -1,5 +1,11 @@
 # Space Age
 
+### Contributors
+* [Olivia](https://github.com/oliviacweb)
+* [Trond](https://github.com/Trond240)
+* [Megan](https://github.com/MeganHuggins)
+* [Kimala](https://github.com/kimalajoy)
+
 ## Overview
 
 Space Age is an app that allows you to enter your name and a birthdate. An image that was taken on that date will render to the page in the form of a card with additional information in regards to the image. You can also view more images that were taken the week of your birthday. On top of viewing your weeks worth of pictures/ videos, you can also view the description given to each as well as favorite the cards you love the most! We used vue.js to create this application.
