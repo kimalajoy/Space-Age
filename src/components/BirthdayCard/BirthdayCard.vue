@@ -110,13 +110,13 @@
   height: 90%;
   left: 0;
   max-width: 400px;
-  opacity: 0;
+  /* opacity: 0; */
   overflow-x: scroll;
   padding: 20px;
   pointer-events: auto;
   position: absolute;
   top: 0;
-  transform: translateX(-100%);
+  /* transform: translateX(-100%); */
   transition: all .5s;
   width: 90%;
 }
